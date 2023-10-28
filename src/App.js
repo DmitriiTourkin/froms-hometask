@@ -3,6 +3,56 @@ import React from 'react'
 import {useState} from "react";
 
 
+function ColorConverter() {
+    const [hexColor, setHexColor] = useState('');
+    const [rgbColor, setRgbColor] = useState('')
+    const [backgroundColor, setBackgroundColor] = useState('');
+
+    return (
+        <div className="main-coverter-wraper" style={{backgroundColor: backgroundColor, height: '100vh'}}>
+            <h1>Из HEX в RGB</h1>
+            <form>
+                <input type={hexColor} placeholder="Цвет в формате hex" onChange={(evt) => {
+                    const myHexString = evt.target.value;
+                    setHexColor(myHexString)
+                    console.log(myHexString);
+
+                    if (myHexString.indexOf('абвгдеёжзийкламнопрстуфхцчшщэюяьъ') === null) {
+                        console.log('ОШИБКА')
+                    }
+                    if (myHexString.length < 3 ) {
+                         const r = myHexString.slice(1, 3)
+                    } else if (myHexString.length > 3 && myHexString.length < 6) {
+                         const r = myHexString.slice(1, 3)
+                         const g = myHexString.slice(3, 5)
+                    } else if (myHexString.length >= 6) {
+                        const r = myHexString.slice(1, 3)
+                        const g = myHexString.slice(3, 5)
+                        const b = myHexString.slice(5, 7)
+                        console.log('r', r)
+                        console.log('g', g)
+                        console.log('b', b)
+                        console.log('Произвошу парсинг числа')
+                        const hexR = parseInt(r, 16);
+                        const hexG = parseInt(g, 16);
+                        const hexB = parseInt(b, 16);
+                        console.log('parsed_r', hexR)
+                        console.log('parsed_g', hexG)
+                        console.log('parsed_b', hexB)
+
+                        const dataString = `rgb(${hexR}, ${hexG}, ${hexB})`
+                        console.log('Полученный RGB: ', dataString);
+                        setRgbColor(dataString)
+                        setBackgroundColor(dataString);
+
+                    }
+}}/>
+                <input value={rgbColor} onChange={(e) => {console.log('перевод в обратку')}
+                }/>
+            </form>
+        </div>
+    );
+}
 
 function TrainingNotes() {
     const [record, setRecord] = useState({date: '', km: 0}); //заполнение самой записи
@@ -71,6 +121,7 @@ function App() {
       <div className="wrapped-part">
           <h1>Учёт Ваших тренировок</h1>
           <TrainingNotes/>
+          <ColorConverter/>
       </div>
   )
 }
