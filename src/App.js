@@ -27,11 +27,11 @@ function TrainingNotes() {
             }}>
                 <label>
                     Дата
-                    <input type="date" className="data-of-training" onChange={(evt) => (setRecord({...record, date: evt.target.value}))}/>
+                    <input type="date" className="data-of-training" value={record.date}onChange={(evt) => (setRecord({...record, date: evt.target.value}))}/>
                 </label>
                 <label>
                     Количество пройденных км
-                    <input type="number" className="km-gone" onChange={(evt) => (setRecord({...record, km: evt.target.value}))}/>
+                    <input type="number" className="km-gone" value={record.value} onChange={(evt) => (setRecord({...record, km: evt.target.value}))}/>
                 </label>
                 <button className="btn btn-dark" type="submit">Ок</button>
             </form>
