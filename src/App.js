@@ -17,9 +17,6 @@ function ColorConverter() {
                     setHexColor(myHexString)
                     console.log(myHexString);
 
-                    if (myHexString.indexOf('абвгдеёжзийкламнопрстуфхцчшщэюяьъ') === null) {
-                        console.log('ОШИБКА')
-                    }
                     if (myHexString.length < 3 ) {
                          const r = myHexString.slice(1, 3)
                     } else if (myHexString.length > 3 && myHexString.length < 6) {
@@ -47,7 +44,7 @@ function ColorConverter() {
 
                     }
 }}/>
-                <input value={rgbColor} onChange={(e) => {console.log('перевод в обратку')}
+                <input value={rgbColor} onChange={(e) => {console.log('функция перевода в обратную сторону')}
                 }/>
             </form>
         </div>
