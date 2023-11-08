@@ -99,7 +99,6 @@ function TrainingNotes() {
                         <td>{record.km}</td>
                         <td><button className="btn btn-dark">Редактировать</button></td>
                         <td onClick={(e) => {
-                            console.log('delete работает');
                             const deletedRecordsNewArray = [...recordsList];
                             const indexToDelete = deletedRecordsNewArray.findIndex((recordNew) => recordNew.date === record.date);
                             const newOne = deletedRecordsNewArray.filter(record => record.date !== deletedRecordsNewArray[indexToDelete].date);
